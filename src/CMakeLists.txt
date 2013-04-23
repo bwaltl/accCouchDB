@@ -9,8 +9,8 @@ SET (LIB_TYPE SHARED)
 SET(EXTCODE_INCLUDE_PATH "C:\\Programme\\National Instruments\\LabVIEW 2011\\cintools")
 INCLUDE_DIRECTORIES(${EXTCODE_INCLUDE_PATH})
 
-SET(CMAKE_INCLUDE_PATH ${CMAKE_INCLUDE_PATH} "c:\\projects\\libs")
-SET(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} "c:\\projects\\libs")
+SET(CMAKE_INCLUDE_PATH ${CMAKE_INCLUDE_PATH} "C:\\projects\\accCouchDB\\accCouchDB\\WinLibraries")
+SET(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} "C:\\projects\\accCouchDB\\accCouchDB\\WinLibraries")
 
 #--------------------------------Looking for pillowtalk---------------------------------------------
 
