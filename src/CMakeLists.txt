@@ -8,8 +8,8 @@ SET (LIB_TYPE SHARED)
 SET(EXTCODE_INCLUDE_PATH "C:\\Programme\\National Instruments\\LabVIEW 2011\\cintools")
 INCLUDE_DIRECTORIES(${EXTCODE_INCLUDE_PATH})
 
-SET(CMAKE_INCLUDE_PATH ${CMAKE_INCLUDE_PATH} /usr/local/natinst/LabVIEW-2011/cintools/)
-SET(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} /usr/local/natinst/LabVIEW-2011/cintools/)
+SET(CMAKE_INCLUDE_PATH ${CMAKE_INCLUDE_PATH} "C:\\projects\\accCouchDB\\accCouchDB\\WinLibraries")
+SET(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} "C:\\projects\\accCouchDB\\accCouchDB\\WinLibraries")
 
 #--------------------------------Looking for pillowtalk---------------------------------------------
 
@@ -34,8 +34,8 @@ MESSAGE("-- Extcode Include Dir:" ${EXTCODE_INCLUDE_DIR})
 INCLUDE_DIRECTORIES(${EXTCODE_INCLUDE_DIR})
 
 IF(WIN32)
-
-	FIND_LIBRARY(EXTCODE_LIBRARY NAMES lv liblv PATHS ${EXTCODE_INCLUDE_PATH})
+	
+	FIND_LIBRARY(EXTCODE_LIBRARY NAMES labview liblabview PATHS ${EXTCODE_INCLUDE_PATH})
 	MESSAGE("-- Extcode Library:" ${EXTCODE_LIBRARY})
 	
 	IF (EXTCODE_INCLUDE_DIR AND EXTCODE_LIBRARY)
@@ -89,5 +89,4 @@ IF(WIN32)
 ELSE(WIN32)
   INSTALL( TARGETS AccCouchDB LIBRARY DESTINATION lib)
 ENDIF(WIN32)
-INSTALL( FILES AccCouchDB.h DESTINATION build)
 
