@@ -1,5 +1,5 @@
 cd "... accCouchDB/build"
 
-cmake -G"NMake Makefiles" "..\accCouchDB\src"
+cmake -G"NMake Makefiles" "..\src"
 
 nmake
