@@ -109,16 +109,24 @@ int insertStringData(const char* server, char* source, const char* data) {
 	//create a new document
 	pt_node_t* root = pt_map_new();
 
+	//set the device, that inserts the data
 	pt_map_set(root, "source", pt_string_new(source));
+	
+	//retrieve a timestamp
 	string timestamp = getTimestamp();
 	pt_map_set(root, "timestamp", pt_string_new(timestamp.c_str()));
+	
+	//set the data value
 	pt_map_set(root, "data", pt_string_new(data));
 	string id = "data_" + string(source) + getTimestampasID();
+	
+	//create a unique id 
 	pt_map_set(root, "_id", pt_string_new(id.c_str()));
 
 	string keyPath = string(server) + "/" + id;
 	log_stringMessage("keyPath", id.c_str());
 
+	//try to insert the document
 	pt_response_t* response = NULL;
 	response = pt_put(keyPath.c_str(), root);
 	if (response->response_code != 201) {
@@ -254,10 +262,10 @@ int callback_non_cont(pt_node_t* node) {
 	return 0;
 }
 
-int callback_send(char* value, bool responseRequired) {
-
-
+int callback_send(char* value, bool responseRequired) 
+{
 	LStrHandle newStringHandle;
+
 	//Allocate memory for a LabVIEW string handle using LabVIEW's
 	//memory manager functions.
 	newStringHandle = (LStrHandle) DSNewHandle(
@@ -339,8 +347,7 @@ int Abort() {
 }
 
 int initChangesFeed(LVUserEventRef* local_rwer, char* server, char* database) {
-	//cout << "starting...";
-
+	
 	pt_init();
 	pt_changes_feed cf = pt_changes_feed_alloc();
 	gNumberOfHeartbeats = 0;
@@ -395,13 +402,6 @@ void PopulateIntHandle(LStrHandle lvStringHandle, int stringData) {
 	LStrLen (*lvStringHandle) = strlen((char*) LStrBuf(*lvStringHandle));
 
 	return;
-}
-
-void writeToStringHandle(char* stringHandle, char* data, int dataLength)
-{
-
-
-
 }
 
 //___________________________________________________________________________
