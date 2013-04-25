@@ -3,3 +3,11 @@ cd "... accCouchDB/build"
 cmake -G"NMake Makefiles" "..\src"
 
 nmake
+
+UNIX:
+
+cd "... accCouchDB/build"
+
+cmake "..\src"
+
+make

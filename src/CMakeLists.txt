@@ -66,8 +66,8 @@ INCLUDE(GenerateExportHeader)
 add_library(AccCouchDB ${LIB_TYPE} ${AccCouchDB_SRCS})
 GENERATE_EXPORT_HEADER( AccCouchDB 
              BASE_NAME AccCouchDB
-             EXPORT_MACRO_NAME AccCouchDB
-             EXPORT_FILE_NAME AccCouchDB.h
+             EXPORT_MACRO_NAME AccCouchDB_EXPORT
+             EXPORT_FILE_NAME AccCouchDB_EXPORT.h
              STATIC_DEFINE AccCouchDB_BUILT_AS_STATIC
 )
 
